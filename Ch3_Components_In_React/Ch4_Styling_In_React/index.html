@@ -2,35 +2,33 @@
 <html>
 <head>
   <title>React Components</title>
-  <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
-  <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
-  <div id="container"></div>
+  <div id="root"></div>
   <script type="text/babel">
-    var HelloWorld = React.createClass({
-        render: function() {
-            return (
-                <p>Hello, {this.props.greetTarget}!</p>
-            );
+    class HelloWorld extends React.Component {
+        render() {
+            return <p>Hello, {this.props.greetTarget}!</p>;
         }
-    });
+    }
 
-    var Buttonify = react.createClass({
-        render: function() {
-            return (
-                <button type={this.props.behavior}>{this.props.children}</button>
-            );
+    class Buttonify extends React.Component {
+        render() {
+            return <button type={this.props.behavior}>{this.props.children}</button>;
         }
-    });
+    }
 
-    ReactDOM.render(
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
         <div>
             <HelloWorld greetTarget="Frederick Aziebu"/>
-            <Buttonify behavior="Submit"><p>SEND DATA</p></Buttonify>
-        </div>,
-        document.querySelector("#container")
+            <Buttonify behavior="Submit">SEND DATA</Buttonify>
+        </div>
     );
   </script>
 </body>
