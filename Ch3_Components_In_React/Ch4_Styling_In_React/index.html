@@ -16,9 +16,20 @@
             );
         }
     });
-    
+
+    var Buttonify = react.createClass({
+        render: function() {
+            return (
+                <button type={this.props.behavior}>{this.props.children}</button>
+            );
+        }
+    });
+
     ReactDOM.render(
-        <HelloWorld greetTarget="Frederick Aziebu"/>,
+        <div>
+            <HelloWorld greetTarget="Frederick Aziebu"/>
+            <Buttonify behavior="Submit"><p>SEND DATA</p></Buttonify>
+        </div>,
         document.querySelector("#container")
     );
   </script>
