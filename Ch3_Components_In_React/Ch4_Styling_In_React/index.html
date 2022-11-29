@@ -12,13 +12,13 @@
     var HelloWorld = React.createClass({
         render: function() {
             return (
-                <p>Hello, componentized world!</p>
+                <p>Hello, {this.props.greetTarget}!</p>
             );
         }
     });
     
     ReactDOM.render(
-        <HelloWorld/>,
+        <HelloWorld greetTarget="Frederick Aziebu"/>,
         document.querySelector("#container")
     );
   </script>
