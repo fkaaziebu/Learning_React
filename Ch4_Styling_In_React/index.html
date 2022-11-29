@@ -12,14 +12,36 @@
           padding: 50px;
           background-color: #FFF;
         }
+        .letter {
+            padding: 10px;
+            margin: 10px;
+            background-color: #ffde00;
+            color: #333;
+            display: inline-block;
+            font-family: monospace;
+            font-size: 32px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
   <div id="root"></div>
   <script type="text/babel">
-    
+    class Letter extends React.Component {
+        render() {
+            return <div className="letter">{this.props.children}</div>;
+        }
+    }
     const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render();
+    root.render(
+        <div>
+            <Letter>A</Letter>
+            <Letter>E</Letter>
+            <Letter>I</Letter>
+            <Letter>O</Letter>
+            <Letter>U</Letter>
+        </div>
+    );
   </script>
 </body>
 </html>
