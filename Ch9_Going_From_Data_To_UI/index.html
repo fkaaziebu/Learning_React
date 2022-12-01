@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>More State!</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        #root {
+          padding: 50px;
+          background-color: #FFF;
+        }
+    </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    class Circle extends React.Component {
+        render() {
+            const circleStyle = {
+                padding: 10,
+                margin: 20,
+                display: "inline-block",
+                backgroundColor: this.props.bgColor,
+                borderRadius: "50%",
+                width: 100,
+                height: 100,
+            };
+            return (
+                <div style={circleStyle}>
+                </div>
+            );
+        }
+    }
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+
+
+    const colors =  ["#393E41", "#E94F37", "#1C89BF", "#A1D363", "#85FFC7", "#297373", "#FF8552", "#A40E4C"];
+    const renderData = []
+    for (var i = 0; i < colors.length; i++) {
+        var color = colors[i];
+        renderData.push(<Circle key={i + color} bgColor={color}/>);
+    }
+    
+    root.render(
+        <div>
+            {renderData}
+        </div>
+    );
+  </script>
+</body>
+</html>
