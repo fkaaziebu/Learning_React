@@ -40,7 +40,7 @@
         }  
             
         increase(e) {
-            const currentCount = this.state.count;
+            let currentCount = this.state.count;
             if (e.shiftKey) {
                 currentCount += 10;
             } else {
